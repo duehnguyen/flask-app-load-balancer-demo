@@ -1,5 +1,4 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-west-1:554198291236:task-definition/Task3:1",
     "containerDefinitions": [
         {
             "name": "Container3",
@@ -22,28 +21,12 @@
     ],
     "family": "Task3",
     "taskRoleArn": "arn:aws:iam::554198291236:role/ecsTaskExecutionRole",
-    "revision": 1,
     "volumes": [],
-    "status": "ACTIVE",
-    "requiresAttributes": [
-        {
-            "name": "com.amazonaws.ecs.capability.ecr-auth"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
-        }
-    ],
     "placementConstraints": [],
-    "compatibilities": [
-        "EXTERNAL",
-        "EC2"
-    ],
     "requiresCompatibilities": [
         "EC2"
     ],
     "cpu": "1024",
     "memory": "100",
-    "registeredAt": "2023-08-05T03:34:33.198Z",
-    "registeredBy": "arn:aws:iam::554198291236:user/cuong",
     "tags": []
 }
