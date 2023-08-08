@@ -9,7 +9,7 @@ def home():
 
 @app.route('/app')
 def blog():
-    return "Hello, from App, #5!"
+    return "Hello, from App to Demo!"
 
 
 
