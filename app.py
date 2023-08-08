@@ -9,7 +9,7 @@ def home():
 
 @app.route('/app')
 def blog():
-    return "Hello, from App, edit to test CI/CD!"
+    return "Hello, from App, 1!"
 
 
 
