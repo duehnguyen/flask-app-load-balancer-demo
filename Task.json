@@ -1,7 +1,7 @@
 {
     "containerDefinitions": [
         {
-            "name": "Container3",
+            "name": "Container5",
             "image": "554198291236.dkr.ecr.us-west-1.amazonaws.com/load-balancer-test",
             "cpu": 0,
             "portMappings": [
@@ -19,7 +19,7 @@
             "volumesFrom": []
         }
     ],
-    "family": "Task3",
+    "family": "Task5",
     "taskRoleArn": "arn:aws:iam::554198291236:role/ecsTaskExecutionRole",
     "volumes": [],
     "placementConstraints": [],
