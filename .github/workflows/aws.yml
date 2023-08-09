@@ -70,7 +70,7 @@ jobs:
 
     - name: Use Secret
       run: |
-        echo "${{ fromJSON(steps.secrets.outputs) }}"
+        echo "${{ (steps.secrets.outputs) }}"
     # - name: Login to Amazon ECR
     #   id: login-ecr
     #   uses: aws-actions/amazon-ecr-login@v1
