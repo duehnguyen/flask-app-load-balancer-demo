@@ -67,6 +67,7 @@ jobs:
       with:
         secret-ids: |
           GithubAction
+        parse-json-secrets: true
 
     - name: Use Secret
       run: |
