@@ -7,8 +7,9 @@
             "portMappings": [
                 {
                     "containerPort": 8081,
-                    "hostPort": 0,
-                    "protocol": "tcp"
+                    "hostPort": 8081,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
                 }
             ],
             "essential": true,
@@ -21,6 +22,7 @@
     ],
     "family": "cktemp-task",
     "taskRoleArn": "arn:aws:iam::554198291236:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::554198291236:role/ecsTaskExecutionRole",
     "volumes": [],
     "placementConstraints": [],
     "requiresCompatibilities": [
