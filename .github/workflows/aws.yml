@@ -31,14 +31,8 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: ${{ secrets.AWS_REGION }}                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}           # set this to your Amazon ECR repository name
-  # ECS_SERVICE: ${{ secrets.ECS_SERVICE }}                 # set this to your Amazon ECS service name
-  # ECS_CLUSTER: ${{ secrets.ECS_CLUSTER }}                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: "./Task.json" # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: "./.github/Task.json" # set this to the path to your Amazon ECS task definition
                                                 # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: "DemoContainer"                  # set this to the name of the container in the
-                                                # containerDefinitions section of your task definition
 
 permissions:
   contents: read
@@ -58,7 +52,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
+        aws-region: ${{ secrets.AWS_REGION }}
 
 
     - name: Get secrets by name
@@ -66,7 +60,7 @@ jobs:
       uses: aws-actions/aws-secretsmanager-get-secrets@v1
       with:
         secret-ids: |
-          GithubAction
+          Cktemp/Deployment
         parse-json-secrets: true
 
     - name: Login to Amazon ECR
@@ -91,13 +85,13 @@ jobs:
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
         task-definition: ${{ env.ECS_TASK_DEFINITION }}
-        container-name: ${{ env.CONTAINER_NAME }}
+        container-name: ${{ env.CKTEMP_DEPLOYMENT_CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: ${{ env.GITHUBACTION_ECS_SERVICE }}
-        cluster: ${{ env.GITHUBACTION_ECS_CLUSTER }}
+        service: ${{ env.CKTEMP_DEPLOYMENT_ECS_SERVICE }}
+        cluster: ${{ env.CKTEMP_DEPLOYMENT_CLUSTER }}
         wait-for-service-stability: true

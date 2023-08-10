@@ -1,8 +1,8 @@
 {
     "containerDefinitions": [
         {
-            "name": "DemoContainer",
-            "image": "554198291236.dkr.ecr.us-west-1.amazonaws.com/load-balancer-test",
+            "name": "cktemp-container",
+            "image": "554198291236.dkr.ecr.us-east-2.amazonaws.com/demo-load-balancer:latest",
             "cpu": 0,
             "portMappings": [
                 {
@@ -19,7 +19,7 @@
             "volumesFrom": []
         }
     ],
-    "family": "DemoTask",
+    "family": "cktemp-task",
     "taskRoleArn": "arn:aws:iam::554198291236:role/ecsTaskExecutionRole",
     "volumes": [],
     "placementConstraints": [],
