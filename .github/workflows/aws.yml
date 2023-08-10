@@ -93,5 +93,5 @@ jobs:
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: ${{ env.CKTEMP_DEPLOYMENT_ECS_SERVICE }}
-        cluster: ${{ env.CKTEMP_DEPLOYMENT_CLUSTER }}
+        cluster: ${{ env.CKTEMP_DEPLOYMENT_ECS_CLUSTER }}
         wait-for-service-stability: true
