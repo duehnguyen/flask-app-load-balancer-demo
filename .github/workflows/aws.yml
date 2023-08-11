@@ -33,6 +33,7 @@ on:
 env:
   ECS_TASK_DEFINITION: ".github/Task.json" # set this to the path to your Amazon ECS task definition
                                                 # file, e.g. .aws/task-definition.json
+  ECS_SERVICE: Service 1
 
 permissions:
   contents: read
@@ -80,9 +81,9 @@ jobs:
         echo "ECS_SERVICE=$CKTEMP_DEPLOYMENT_ECS_SERVICE" >> .env
         echo "ECS_CLUSTER=$CKTEMP_DEPLOYMENT_ECS_CLUSTER" >> .env
         echo "CONTAINER_NAME=$CKTEMP_DEPLOYMENT_CONTAINER_NAME" >> .env
-        docker compose build
-        docker tag demo-load-balancer:latest $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG
-        # docker build -t $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG $(for i in `cat .env`; do echo "--build-arg " $i ; done;) .
+        # docker compose build
+        # docker tag demo-load-balancer:latest $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG
+        docker build -t $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
