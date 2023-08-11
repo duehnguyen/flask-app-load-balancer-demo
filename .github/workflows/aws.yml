@@ -80,8 +80,7 @@ jobs:
         echo "ECS_SERVICE=$CKTEMP_DEPLOYMENT_ECS_SERVICE" >> .env
         echo "ECS_CLUSTER=$CKTEMP_DEPLOYMENT_ECS_CLUSTER" >> .env
         echo "CONTAINER_NAME=$CKTEMP_DEPLOYMENT_CONTAINER_NAME" >> .env
-        cat .env
-        docker build -t $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG .
+        docker build -t $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG $(for i in `cat .env`; do out+="--build-arg $i " ; done; echo $out;out="") .
         docker push $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
 

@@ -8,6 +8,10 @@ RUN pip install -r requirements.txt
 
 COPY . /app
 
+ENV ECS_CLUSTER=\
+  ECS_SERVICE=\
+  CONTAINER_NAME=
+
 EXPOSE 8081 
 
 ENTRYPOINT [ "python" ]
