@@ -1,5 +1,6 @@
 from flask import render_template
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
@@ -9,7 +10,7 @@ def home():
 
 @app.route('/app')
 def blog():
-    return "Hello, from App to Demo!"
+    return "Hello, from App to Demo! Service is " + os.environ['ECS_SERVICE']
 
 
 

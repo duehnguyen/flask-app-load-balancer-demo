@@ -76,6 +76,10 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
+        touch .env
+        echo "ECS_SERVICE=$CKTEMP_DEPLOYMENT_ECS_SERVICE" >> .env
+        echo "ECS_CLUSTER=$CKTEMP_DEPLOYMENT_ECS_CLUSTER" >> .env
+        echo "CONTAINER_NAME=$CKTEMP_DEPLOYMENT_CONTAINER_NAME" >> .env
         docker build -t $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$CKTEMP_DEPLOYMENT_ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
