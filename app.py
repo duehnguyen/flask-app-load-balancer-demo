@@ -10,7 +10,9 @@ def home():
 
 @app.route('/app')
 def blog():
-    return "Hello, from App to Demo! Service is " + os.environ['ECS_SERVICE']
+    service = os.environ['ECS_SERVICE']
+    message = "Hello, from App to Demo! Service is " + service
+    return message
 
 
 
