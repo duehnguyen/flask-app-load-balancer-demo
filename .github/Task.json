@@ -19,8 +19,8 @@
             "volumesFrom": [],
             "secrets": [
                 {
-                    "valueFrom": "arn:aws:secretsmanager:us-east-2:554198291236:secret:Cktemp/Deployment-TqDvQj",
-                    "name": "ENV"
+                    "valueFrom": "arn:aws:secretsmanager:us-east-2:554198291236:secret:Cktemp/Deployment-TqDvQj/ECS_SERVICE",
+                    "name": "ECS_SERVICE"
                 }
             ],
             "logConfiguration": {
