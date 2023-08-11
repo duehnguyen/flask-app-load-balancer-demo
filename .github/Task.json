@@ -20,7 +20,7 @@
             "secrets": [
                 {
                     "valueFrom": "arn:aws:secretsmanager:us-east-2:554198291236:secret:Cktemp/Deployment-TqDvQj",
-                    "name": "ECS_SERVICE"
+                    "name": ".env"
                 }
             ],
             "logConfiguration": {
