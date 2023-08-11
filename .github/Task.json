@@ -39,6 +39,12 @@
     ],
     "cpu": "1024",
     "memory": "3072",
+    "secrets": [
+        {
+            "valueFrom": "arn:aws:secretsmanager:us-east-2:554198291236:secret:Cktemp/Deployment-TqDvQj",
+            "name": "Cktemp/Deployment-TqDvQj"
+        }
+    ],
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
