@@ -17,10 +17,10 @@
             "environment": [],
             "mountPoints": [],
             "volumesFrom": [],
-            "environmentFiles": [
-                { 
-                    "value": "arn:aws:s3:::due-local/.env",
-                    "type": "s3"
+            "secrets": [
+                {
+                    "valueFrom": "arn:aws:secretsmanager:us-east-2:554198291236:secret:Cktemp/Deployment-TqDvQj:ECS_SERVICE",
+                    "name": "ECS_SERVICE"
                 }
             ],
             "logConfiguration": {
